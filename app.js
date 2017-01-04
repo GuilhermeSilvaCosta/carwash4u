@@ -54,8 +54,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(3000, function(){
-  console.log('Carwash4U rodando na porta 3000');
+const port = process.env.API_SERVICE_PORT || 3000;
+
+app.listen(port, function(){
+  console.log('Carwash4U rodando na porta ' + port);
 });
 
 // module.exports = app;
