@@ -1,0 +1,23 @@
+{
+  "name": "carwash4u",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "GuilhermeSilvaCosta <tec.guilherme.dsc@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/GuilhermeSilvaCosta/carwash4u",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "view/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "materialize": "^0.98.0"
+  }
+}
