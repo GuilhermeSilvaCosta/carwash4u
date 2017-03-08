@@ -1,4 +1,4 @@
-angular.module('carwash4u').config(config);
+angular.module('carwash4u', ['ngRoute']).config(config);
 
 function config($routeProvider){
     $routeProvider
