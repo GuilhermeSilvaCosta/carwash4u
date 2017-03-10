@@ -1,3 +1,4 @@
 node_modules/
 view/vendor/
 npm-debug.log
+*.pem
