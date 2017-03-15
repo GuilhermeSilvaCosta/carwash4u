@@ -4,12 +4,20 @@
         <h5 class="header col s12 light">Encontre o lava-rapido mais proximo de você!</h5>
     </div>
     <div class="row center">    
-        <button data-ng-click="Home.getLocation()" id="start" class="btn-large waves-effect waves-light blue">
+        <!--<button data-ng-click="Home.getLocation()" id="start" class="btn-large waves-effect waves-light blue">
             <i class="material-icons left">search</i>
             Procurar
         </button>
         <p id="location">{{ Home.location }}</p>
-        <img src="{{ Home.map }}" alt="">
+        <img src="{{ Home.map }}" alt="">-->
+        <button data-ng-click="Home.getLocation()" id="start" class="btn-large waves-effect waves-light blue">
+            <i class="material-icons left">search</i>
+            Procurar
+        </button>
+        <br><br>
+        <span>{{ Home.erroLocation }}</span>
+        <div class="col s12 m12" id="mapa">
+        </div>
     </div>
 </div>
 <div class="container">
