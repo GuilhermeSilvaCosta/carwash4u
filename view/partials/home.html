@@ -10,14 +10,10 @@
         </button>
         <p id="location">{{ Home.location }}</p>
         <img src="{{ Home.map }}" alt="">-->
-        <button data-ng-click="Home.getLocation()" id="start" class="btn-large waves-effect waves-light blue">
+        <a data-ng-href="#/carwashes" id="start" class="btn-large waves-effect waves-light blue">
             <i class="material-icons left">search</i>
             Procurar
-        </button>
-        <br><br>
-        <span>{{ Home.erroLocation }}</span>
-        <div class="col s12 m12" id="mapa">
-        </div>
+        </a>
     </div>
 </div>
 <div class="container">
