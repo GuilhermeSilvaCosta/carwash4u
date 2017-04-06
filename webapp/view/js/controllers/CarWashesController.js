@@ -1,7 +1,31 @@
 angular.module('carwash4u').controller('CarWashesController', CarWashesController);
 
-function CarWashesController($scope){
+function CarWashesController($scope, NgMap){
     var vm = this;
+
+    // NgMap.getMap().then(function(map) {
+    //     var latlng = new google.maps.LatLng(40, -110);
+    //     map.setCenter(latlng);
+    //     map.setZoom(4);
+    //     window.map = map;
+    // });
+    
+    // vm.setCenter = function(){
+    //     window.map.setCenter(new google.maps.LatLng(50, -110) );
+    // }
+
+    $scope.pageClass = 'page-about';
+     NgMap.getMap().then(function(map) {
+
+        var latlng = new google.maps.LatLng(40, -110);
+       map.setCenter(latlng);
+       map.setZoom(4);
+       window.map = map;
+    });
+    
+    $scope.setCenter = function(){
+      window.map.setCenter(new google.maps.LatLng(50, -110) );
+    }    
 
     vm.initialize = initialize;
     function initialize(lat, lng){
@@ -42,7 +66,8 @@ function CarWashesController($scope){
                 vm.erroLocation = "Algum erro desconhecido aconteceu.";
                 break;
         }
-        $scope.$apply();
+        $("#progress").hide();
+        // $scope.$apply();
     }
 
     vm.showPosition = showPosition;
@@ -62,5 +87,5 @@ function CarWashesController($scope){
             vm.location = "O seu navegador não suporta Geolocalização.";
         }        
     }
-    getLocation();
+    // getLocation();
 }

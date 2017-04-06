@@ -20,6 +20,6 @@
     "angular": "^1.6.2",
     "materialize": "^0.98.0",
     "angular-route": "^1.6.2",
-    "google-maps": "^3.2.1"
+    "ngmap": "^1.18.4"
   }
 }

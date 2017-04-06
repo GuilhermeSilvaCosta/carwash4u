@@ -1,4 +1,4 @@
-angular.module('carwash4u', ['ngRoute']).config(config);
+angular.module('carwash4u', ['ngRoute','ngMap']).config(config);
 
 function config($routeProvider, $locationProvider){
     $locationProvider.hashPrefix('');

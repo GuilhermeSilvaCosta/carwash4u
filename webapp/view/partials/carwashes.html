@@ -1,7 +1,7 @@
 <div class="container">	
 	<div class="row center">
 		<br><br>
-		<div class="col s12 m12" id="progress">						
+		<div class="col s12 m12" id="progress" data-ng-hide="{{ CarWashes.map }}">						
 			<div class="preloader-wrapper big active">
 				<div class="spinner-layer spinner-blue-only">
 					<div class="circle-clipper left">
@@ -16,8 +16,6 @@
 				</div>
 			</div>	
 		</div>
-		<span>{{ CarWashes.erroLocation }}</span>
-		<div class="col s12 m12" id="mapa">		
-		</div>
+		<ng-map center="[40.74, -74.18]"></ng-map>						
 	</div>
 </div>
