@@ -1,56 +1,35 @@
 angular.module('carwash4u').controller('CarWashesController', CarWashesController);
 
-function CarWashesController($scope, NgMap){
+function CarWashesController(NgMap){
     var vm = this;
 
-    // NgMap.getMap().then(function(map) {
-    //     var latlng = new google.maps.LatLng(40, -110);
-    //     map.setCenter(latlng);
-    //     map.setZoom(4);
-    //     window.map = map;
-    // });
-    
-    // vm.setCenter = function(){
-    //     window.map.setCenter(new google.maps.LatLng(50, -110) );
-    // }
-
-    $scope.pageClass = 'page-about';
-     NgMap.getMap().then(function(map) {
-
-        var latlng = new google.maps.LatLng(40, -110);
-       map.setCenter(latlng);
-       map.setZoom(4);
-       window.map = map;
-    });
-    
-    $scope.setCenter = function(){
-      window.map.setCenter(new google.maps.LatLng(50, -110) );
+    getLocation();
+    function getLocation(){
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        }else{
+            vm.location = "O seu navegador não suporta Geolocalização.";
+        }        
     }    
 
-    vm.initialize = initialize;
-    function initialize(lat, lng){
-        GoogleMapsLoader.KEY = 'AIzaSyD4O3j30Ktxg0LrfptRTd73nQdV4BL1qR4';
-        GoogleMapsLoader.load(function(google) {
-            var latlng = new google.maps.LatLng(lat, lng);
-
-            var options = {
-                zoom: 15,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };        
-
-            vm.map = new google.maps.Map(document.getElementById("mapa"), options);
-            var marker = new google.maps.Marker({
+    function showPosition(position){
+        NgMap.getMap().then(function(map) {
+            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(latlng);
+            map.setZoom(16);
+            vm.map = map;            
+            new google.maps.Marker({
                 position: latlng,
-                title: "Meu ponto personalizado! :-D",
-                map: vm.map
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP
             });
-            $("#progress").hide();
-            $("#mapa").height(300);
-        });        
-    }
+            for (var key in map.markers) {
+                map.markers[key].setMap(null);
+            };            
+        });              
+    }    
 
-    vm.showError = showError;
     function showError(error){
         switch(error.code){
             case error.PERMISSION_DENIED:
@@ -66,26 +45,5 @@ function CarWashesController($scope, NgMap){
                 vm.erroLocation = "Algum erro desconhecido aconteceu.";
                 break;
         }
-        $("#progress").hide();
-        // $scope.$apply();
     }
-
-    vm.showPosition = showPosition;
-    function showPosition(position){
-        // vm.location = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
-        // var latlon = position.coords.latitude+","+position.coords.longitude;
-        // vm.map = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false";
-        // $scope.$apply();   
-        initialize(position.coords.latitude, position.coords.longitude);      
-    }
-
-    vm.getLocation = getLocation;
-    function getLocation(){
-        if (navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(showPosition, showError);
-        }else{
-            vm.location = "O seu navegador não suporta Geolocalização.";
-        }        
-    }
-    // getLocation();
 }
