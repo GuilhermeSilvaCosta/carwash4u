@@ -1,0 +1,10 @@
+<div data-ng-map class="map" center="{{CarWashes.minhaLocalizacao}}">
+    <marker id="minha-posicao" position="{{CarWashes.minhaLocalizacao}}">
+    </marker>
+    <marker ng-repeat="p in CarWashes.washes"
+      id="custom-marker-{{$index}}"
+      position="{{p.pos}}"
+      icon="{{p.icon}}" 
+      animation="DROP">      
+    </marker>    
+</div>

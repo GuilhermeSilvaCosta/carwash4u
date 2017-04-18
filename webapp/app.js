@@ -4,12 +4,12 @@ function config($routeProvider, $locationProvider){
     $locationProvider.hashPrefix('');
     $routeProvider
     .when('/', {
-        templateUrl: 'partials/home.html',
+        templateUrl: 'views/home.html',
         controller: 'HomeController',
         controllerAs: 'Home'        
     })
     .when('/carwashes', {
-        templateUrl: 'partials/carwashes.html',
+        templateUrl: 'views/carwashes.html',
         controller: 'CarWashesController',
         controllerAs: 'CarWashes'
     })
