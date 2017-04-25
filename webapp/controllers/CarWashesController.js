@@ -22,6 +22,13 @@ function CarWashesController(NgMap){
                 icon: icon
             }
         ];
+    
+
+    vm.showData = showData;
+    function showData(p){
+        vm.p = p;
+        vm.map.showInfoWindow('foo-iw', this);                
+    }
 
     getLocation();
     function getLocation(){
@@ -32,10 +39,10 @@ function CarWashesController(NgMap){
         }        
     }    
 
-    function showPosition(position){
-        vm.minhaLocalizacao = position.coords.latitude+", "+position.coords.longitude;
-        NgMap.getMap().then(function(map){
-            vm.map = map;
+    function showPosition(position){      
+        vm.minhaLocalizacao = position.coords.latitude + ", " + position.coords.longitude;
+        NgMap.getMap().then(function(map){            
+            vm.map = map;            
         });        
     }    
 

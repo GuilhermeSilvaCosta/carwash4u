@@ -1,4 +1,4 @@
-angular.module('carwash4u', ['ngRoute','ngMap']).config(config);
+angular.module('carwash4u', ['ngRoute','ngMap','ui.materialize']).config(config);
 
 function config($routeProvider, $locationProvider){
     $locationProvider.hashPrefix('');
@@ -12,6 +12,11 @@ function config($routeProvider, $locationProvider){
         templateUrl: 'views/carwashes.html',
         controller: 'CarWashesController',
         controllerAs: 'CarWashes'
+    })
+    .when('/guilherme', {
+        templateUrl: 'views/guilherme.html',
+        controller: 'GuilhermeController',
+        controllerAs: 'Guilherme'
     })
     .otherwise({
         redirectTo: '/'

@@ -20,6 +20,7 @@
     "angular": "^1.6.2",
     "materialize": "^0.98.0",
     "angular-route": "^1.6.2",
-    "ngmap": "^1.18.4"
+    "ngmap": "^1.18.4",
+    "angular-materialize": "^0.2.2"
   }
 }

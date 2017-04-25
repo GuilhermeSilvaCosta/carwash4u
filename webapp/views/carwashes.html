@@ -1,10 +1,29 @@
 <div data-ng-map class="map" center="{{CarWashes.minhaLocalizacao}}">
-    <marker id="minha-posicao" position="{{CarWashes.minhaLocalizacao}}">
+    <marker id="minha-posicao" position="{{CarWashes.minhaLocalizacao}}">      
     </marker>
     <marker ng-repeat="p in CarWashes.washes"
-      id="custom-marker-{{$index}}"
+      id="marker-{{$index}}"
       position="{{p.pos}}"
       icon="{{p.icon}}" 
-      animation="DROP">      
-    </marker>    
+	  on-click="CarWashes.showData(p)"
+      animation="DROP">
+    </marker>	 
+	<info-window id="foo-iw">
+           <div ng-non-bindable="">
+                id: {{CarWashes.p.locationId}}<br/>
+                name: {{CarWashes.p.locationName}}<br/> 
+                <a class='btn' data-target='demoModal' data-modal>Show Modal</a>
+           </div>
+     </info-window>	   
+</div>
+
+
+<div id="demoModal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Modal header</h4>
+        <p>A bunch of text</p>
+    </div>    
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
 </div>
