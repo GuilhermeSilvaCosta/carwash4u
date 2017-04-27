@@ -42,7 +42,9 @@ function CarWashesController(NgMap){
     function showPosition(position){      
         vm.minhaLocalizacao = position.coords.latitude + ", " + position.coords.longitude;
         NgMap.getMap().then(function(map){            
-            vm.map = map;            
+            vm.map = map;
+            Materialize.toast("O ponto vermelho indica sua localização", 5000);
+            Materialize.toast("Toque nos pontos para mais informções", 8000);
         });        
     }    
 
