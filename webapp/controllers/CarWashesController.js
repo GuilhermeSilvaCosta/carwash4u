@@ -1,36 +1,22 @@
 angular.module('carwash4u').controller('CarWashesController', CarWashesController);
 
-function CarWashesController(NgMap){
+function CarWashesController(NgMap, ngGPlacesAPI){
     var vm = this;
+    vm.washes = [];
+    vm.showData = showData; 
+    vm.place = null;   
+    getLocation();
 
     const icon = {
                     url: '../../content/images/washes.png',
                     scaledSize: [23, 23]
-                 }
-
-    vm.washes = [
-            {
-                pos: [-22.22076076, -49.95813847],
-                icon: icon
-            },
-            {
-                pos: [-22.2233232, -49.96009111],
-                icon: icon
-            },
-            {
-                pos: [-22.2196285, -49.95783806],
-                icon: icon
-            }
-        ];
+                 }            
     
-
-    vm.showData = showData;
-    function showData(p){
-        vm.p = p;
+    function showData(event, place){
+        vm.place = place;
         vm.map.showInfoWindow('foo-iw', this);                
     }
-
-    getLocation();
+    
     function getLocation(){
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -39,12 +25,32 @@ function CarWashesController(NgMap){
         }        
     }    
 
+    function iterarCarWashes(results){                         
+        for (var i = 0; i < results.length; i++) {
+            var place = {
+                nome: results[i].name,
+                endereco: results[i].vicinity,
+                pos: [results[i].geometry.location.lat(), results[i].geometry.location.lng()],
+                icon: icon
+            }                    
+            vm.washes.push(place);
+        }
+    }
+
     function showPosition(position){      
-        vm.minhaLocalizacao = position.coords.latitude + ", " + position.coords.longitude;
-        NgMap.getMap().then(function(map){            
-            vm.map = map;
+        vm.minhaLocalizacao = position.coords.latitude + ", " + position.coords.longitude;     
+        NgMap.getMap().then(function(map){             
+            vm.map = map;               
+            const request = {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                types: ['car_wash'],
+                radius:5000                
+            }
+            ngGPlacesAPI.nearbySearch(request).then(iterarCarWashes);
+
             Materialize.toast("O ponto vermelho indica sua localização", 5000);
-            Materialize.toast("Toque nos pontos para mais informções", 8000);
+            Materialize.toast("Toque nos pontos para mais informções", 8000);            
         });        
     }    
 
