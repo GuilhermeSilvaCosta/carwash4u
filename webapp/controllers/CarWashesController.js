@@ -14,6 +14,11 @@ function CarWashesController(NgMap, ngGPlacesAPI){
     
     function showData(event, place){
         vm.place = place;
+        if (this.getAnimation() != null) {
+            this.setAnimation(null);
+        } else {
+            this.setAnimation(google.maps.Animation.BOUNCE);
+        }        
         vm.map.showInfoWindow('foo-iw', this);                
     }
     
@@ -31,6 +36,8 @@ function CarWashesController(NgMap, ngGPlacesAPI){
                 nome: results[i].name,
                 endereco: results[i].vicinity,
                 pos: [results[i].geometry.location.lat(), results[i].geometry.location.lng()],
+                place_id: results[i].place_id,
+                conveniado: true,
                 icon: icon
             }                    
             vm.washes.push(place);

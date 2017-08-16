@@ -13,15 +13,15 @@ function config($routeProvider, $locationProvider, ngGPlacesAPIProvider){
         controller: 'CarWashesController',
         controllerAs: 'CarWashes'
     })
-    .when('/teste', {
-        templateUrl: 'views/guilherme.html',
-        controller: 'GuilhermeController',
-        controllerAs: 'Guilherme'
+    .when('/manager', {
+        templateUrl: 'views/manager.html',
+        controller: 'ManagerController',
+        controllerAs: 'Manager'
     })
     .otherwise({
         redirectTo: '/'
     });
     ngGPlacesAPIProvider.setDefaults({        
-        nearbySearchKeys: ['name','geometry','vicinity', 'icon']
+        nearbySearchKeys: ['name','geometry','vicinity', 'icon', 'place_id']
     });    
 }
