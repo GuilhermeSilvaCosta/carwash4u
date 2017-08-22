@@ -5,6 +5,7 @@ function CarWashesController(NgMap, ngGPlacesAPI){
     vm.washes = [];
     vm.showData = showData; 
     vm.place = null;   
+    vm.lastMark = null;
     getLocation();
 
     const icon = {
@@ -14,12 +15,16 @@ function CarWashesController(NgMap, ngGPlacesAPI){
     
     function showData(event, place){
         vm.place = place;
-        if (this.getAnimation() != null) {
-            this.setAnimation(null);
+        if (vm.lastMark != null){
+            vm.lastMark.setAnimation(null);
+        }
+        vm.lastMark = this;        
+        if (vm.lastMark.getAnimation() != null) {
+            vm.lastMark.setAnimation(null);
         } else {
-            this.setAnimation(google.maps.Animation.BOUNCE);
+            vm.lastMark.setAnimation(google.maps.Animation.BOUNCE);
         }        
-        vm.map.showInfoWindow('foo-iw', this);                
+        vm.map.showInfoWindow('foo-iw', vm.lastMark);                
     }
     
     function getLocation(){

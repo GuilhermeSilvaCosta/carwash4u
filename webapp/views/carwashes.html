@@ -44,13 +44,22 @@
     </div>    
 </div>
 
-  <div id="modalConfirmation" class="modal">
+<div id="modalConfirmation" class="modal">
     <div class="modal-content">
-      <h4>Solicitação de Agendamento</h4>
-      <p>Será enviada uma solicitação de agendamento para o proprietário do estabelecimento, deseja continuar?</p>
+        <h4>Solicitação de Agendamento</h4>
+        <p>Será enviada uma solicitação de agendamento para o proprietário do estabelecimento, deseja continuar?</p>
     </div>
     <div class="modal-footer">
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">Sim</a>      
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="fechar()">Sim</a>      
     </div>    
-  </div>
+</div>
+
+<script>
+    function fechar(){
+        $('#demoModal').modal('close');
+    }
+    function fecharInfo(infoWindow){
+        infoWindow.close();
+    }
+</script>
