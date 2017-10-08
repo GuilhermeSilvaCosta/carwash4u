@@ -1,4 +1,4 @@
-angular.module('carwash4u', ['ngRoute','ngMap','ui.materialize','ngGPlaces']).config(config);
+angular.module('carwash4u', ['ngRoute','ngMap','ui.materialize','ngGPlaces', 'satellizer']).config(config);
 
 function config($routeProvider, $locationProvider, ngGPlacesAPIProvider){
     $locationProvider.hashPrefix('');
@@ -18,6 +18,11 @@ function config($routeProvider, $locationProvider, ngGPlacesAPIProvider){
         controller: 'ManagerController',
         controllerAs: 'Manager'
     })
+    .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController',
+        controllerAs: 'Login'
+    })    
     .otherwise({
         redirectTo: '/'
     });

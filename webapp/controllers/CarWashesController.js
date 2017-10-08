@@ -42,7 +42,7 @@ function CarWashesController(NgMap, ngGPlacesAPI){
                 endereco: results[i].vicinity,
                 pos: [results[i].geometry.location.lat(), results[i].geometry.location.lng()],
                 place_id: results[i].place_id,
-                conveniado: true,
+                conveniado: false,
                 icon: icon
             }                    
             vm.washes.push(place);

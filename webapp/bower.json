@@ -22,6 +22,8 @@
     "angular-route": "^1.6.2",
     "ngmap": "^1.18.4",
     "angular-materialize": "^0.2.2",
-    "angularjs-google-places": "^0.1.0"
+    "angularjs-google-places": "^0.1.0",
+    "satellizer": "^0.15.5",
+    "font-awesome": "^4.7.0"
   }
 }
