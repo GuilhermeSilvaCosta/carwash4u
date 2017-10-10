@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ${STI_SCRIPTS_PATH}/assemble ### executa o assemble original
+bower install
