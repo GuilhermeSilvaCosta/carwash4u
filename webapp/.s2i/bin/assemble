@@ -1,4 +1,5 @@
 #!/bin/bash
 
 source ${STI_SCRIPTS_PATH}/assemble ### executa o assemble original
+npm install -g bower
 bower install
