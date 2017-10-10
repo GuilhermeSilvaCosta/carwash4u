@@ -1,8 +1,8 @@
 #!/bin/bash
 
 source ${STI_SCRIPTS_PATH}/assemble ### executa o assemble original
-wget http://nodejs.org/dist/v8.6.0/node-v0.10.30-linux-x64.tar.gz
-sudo tar --strip-components 1 -xzvf node-v* -C /usr/local
-node --version
-npm install -g bower
+sudo yum update -y
+sudo yum install -y epel-release gcc gcc-c++ git libtool-ll libtool-ltdl-devel lsof make unixODBC unixODBC-devel wget
+sudo yum install -y nodejs npm --enablerepo=epel
+sudo npm install -g node-gyp bower
 bower install
