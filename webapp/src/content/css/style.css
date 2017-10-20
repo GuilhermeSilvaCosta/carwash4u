@@ -1,0 +1,31 @@
+html, body{
+  height: 100%;
+}
+
+.map {
+  width:100%; 
+  height: calc(100% - 56px);
+  position: absolute;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+@media only screen and (min-width: 993px) {
+  .map {
+    height: calc(100% - 56px);
+  }
+  .responsive-img {
+    width: 30%;
+  }  
+}
+
+@media only screen and (min-width: 601px) {
+  .map {
+    height: calc(100% - 64px)
+  }
+}

@@ -1,0 +1,65 @@
+<div data-ng-map class="map" data-disable-default-u-i="true" 
+    center="{{CarWashes.minhaLocalizacao}}" >
+    <marker id="minha-posicao" position="{{CarWashes.minhaLocalizacao}}">      
+    </marker>
+    <marker ng-repeat="p in CarWashes.washes"
+      id="marker-{{$index}}"
+      position="{{p.pos}}"
+      icon="{{p.icon}}" 
+	  on-click="CarWashes.showData(p)"
+      animation="DROP" >
+    </marker>	 
+	<info-window id="foo-iw">
+           <div ng-non-bindable="">
+                <b>{{CarWashes.place.nome}}</b>
+                <br>
+                <address>{{CarWashes.place.endereco}}</address>
+                <br>
+                <div class="row center">                    
+                    <a class='btn blue' data-target='demoModal' data-modal>Agendamento</a>
+                </div>
+           </div>
+     </info-window>	   
+</div>
+
+
+<div id="demoModal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h5>{{CarWashes.place.nome}}</h5>
+        <div data-ng-hide="CarWashes.place.conveniado == true">
+            <p>Não é possível agendar um horário neste estabelecimento.</p>
+        </div>
+        <div data-ng-show="CarWashes.place.conveniado == true" class="collection">
+            <a data-target="modalConfirmation" class="collection-item blue-text btn" data-modal>Agendar as 09:00 hrs</a>
+            <a data-target="modalConfirmation" class="collection-item active blue withe-text btn" data-modal>10:00 hrs - Indisponível</a>
+            <a data-target="modalConfirmation" class="collection-item blue-text btn" data-modal>Agendar as 11:00 hrs</a>
+            <a data-target="modalConfirmation" class="collection-item blue-text btn" data-modal>Agendar as 13:00 hrs</a>
+            <a data-target="modalConfirmation" class="collection-item blue-text btn" data-modal>Agendar as 14:00 hrs</a>
+            <a data-target="modalConfirmation" class="collection-item blue-text btn" data-modal>Agendar as 15:00 hrs</a>
+            <a data-target="modalConfirmation" class="collection-item blue-text btn" data-modal>Agendar as 16:00 hrs</a>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">Voltar</a>
+    </div>    
+</div>
+
+<div id="modalConfirmation" class="modal">
+    <div class="modal-content">
+        <h4>Solicitação de Agendamento</h4>
+        <p>Será enviada uma solicitação de agendamento para o proprietário do estabelecimento, deseja continuar?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="fechar()">Sim</a>      
+    </div>    
+</div>
+
+<script>
+    function fechar(){
+        $('#demoModal').modal('close');
+    }
+    function fecharInfo(infoWindow){
+        infoWindow.close();
+    }
+</script>

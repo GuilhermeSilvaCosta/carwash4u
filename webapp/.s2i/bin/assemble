@@ -1,8 +1,0 @@
-#!/bin/bash
-
-source ${STI_SCRIPTS_PATH}/assemble ### executa o assemble original
-yum update -y
-yum install -y epel-release gcc gcc-c++ git libtool-ll libtool-ltdl-devel lsof make unixODBC unixODBC-devel wget
-yum install -y nodejs npm --enablerepo=epel
-npm install -g node-gyp bower
-bower install
