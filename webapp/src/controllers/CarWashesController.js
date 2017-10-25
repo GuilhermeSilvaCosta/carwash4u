@@ -24,7 +24,7 @@ function CarWashesController(NgMap, ngGPlacesAPI){
             vm.lastMark.setAnimation(null);
         } else {
             vm.lastMark.setAnimation(google.maps.Animation.BOUNCE);
-        }        
+        }                
         vm.map.showInfoWindow('foo-iw', vm.lastMark);                
     }
     

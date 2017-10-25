@@ -15,6 +15,7 @@ var favicon = ['favicon.ico'];
 var filesCSS = 'content/css/*.css';
 var fileImages = 'content/images/*.*';
 var filesViews = 'views/*.*';
+var googleFile = 'google4b4f3cc36c0096c9.html';
 var vendors = 'vendor/**';
 var certificados = '*.pem'
 
@@ -44,6 +45,9 @@ gulp.task('dist', function() {
         'js': 'dist.min.js',
         'css': 'content/css/style.min.css'
     }))
+    .pipe(gulp.dest('../dist'));
+
+    gulp.src(googleFile)
     .pipe(gulp.dest('../dist'));
 
     gulp.src(favicon)
