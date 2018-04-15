@@ -1,7 +1,7 @@
 angular.module('carwash4u').controller('CarWashesController', CarWashesController);
 
 /* @ngInject */
-function CarWashesController(NgMap, ngGPlacesAPI){
+function CarWashesController(NgMap, ngGPlacesAPI){   
     var vm = this;
     vm.washes = [];
     vm.showData = showData; 
@@ -14,7 +14,7 @@ function CarWashesController(NgMap, ngGPlacesAPI){
                     scaledSize: [23, 23]
                  };            
     
-    function showData(event, place){
+    function showData(event, place){        
         vm.place = place;
         if (vm.lastMark != null){
             vm.lastMark.setAnimation(null);
