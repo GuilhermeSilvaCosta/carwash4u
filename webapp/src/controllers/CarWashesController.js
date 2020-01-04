@@ -50,7 +50,7 @@ function CarWashesController(NgMap, ngGPlacesAPI){
         }
     }
 
-    function showPosition(position){      
+    function showPosition(position){
         vm.minhaLocalizacao = position.coords.latitude + ", " + position.coords.longitude;     
         NgMap.getMap().then(function(map){             
             vm.map = map;               
@@ -62,8 +62,8 @@ function CarWashesController(NgMap, ngGPlacesAPI){
             };
             ngGPlacesAPI.nearbySearch(request).then(iterarCarWashes);
 
-            Materialize.toast("O ponto vermelho indica sua localização", 5000);
-            Materialize.toast("Toque nos pontos para mais informções", 8000);            
+            Materialize.toast("O ponto vermelho indica sua localização", 9000);
+            Materialize.toast("Toque nos pontos para mais informções", 9000);            
         });        
     }    
 

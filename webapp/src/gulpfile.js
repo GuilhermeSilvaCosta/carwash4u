@@ -17,7 +17,8 @@ var fileImages = 'content/images/*.*';
 var filesViews = 'views/*.*';
 var googleFile = 'google4b4f3cc36c0096c9.html';
 var vendors = 'vendor/**';
-var certificados = '*.pem'
+var certificados = '*.pem';
+var ngMap = 'node_modules/ngmap/build/scripts/**';
 
 gulp.task('lint', function() {
     gulp.src(filesJS)
@@ -70,6 +71,9 @@ gulp.task('dist', function() {
 
     gulp.src(vendors)
     .pipe(gulp.dest('../dist/vendor'));
+
+    gulp.src(ngMap)
+    .pipe(gulp.dest('../dist/node_modules/ngmap/build/scripts'));
 
 });
 

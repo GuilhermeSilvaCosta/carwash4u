@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "natives": "^1.1.6"
+    "natives": "^1.1.6",
+    "ngmap": "^1.18.5"
   },
   "devDependencies": {
     "del": "^3.0.0",
