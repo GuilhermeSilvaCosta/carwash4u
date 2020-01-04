@@ -40,7 +40,7 @@ function config($routeProvider, $locationProvider, ngGPlacesAPIProvider, $authPr
         redirectUri: 'http://192.168.0.181:8080/'
     };    
     $authProvider.facebook(angular.extend({}, commonConfig, {
-        clientId: 170751986848124,
+        clientId: 'PUT YOUR CLIENT ID',
         url: 'http://localhost:3000/auth/facebook'
     }));
 }
