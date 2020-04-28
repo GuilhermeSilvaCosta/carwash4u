@@ -1,6 +1,6 @@
-angular.module('carwash4u', ['ngRoute','ngMap','ui.materialize','ngGPlaces', 'satellizer']).config(config);
+angular.module('carwash4u', ['ngRoute','ui.materialize', 'satellizer', 'nemLogging','ui-leaflet']).config(config);
 
-function config($routeProvider, $locationProvider, ngGPlacesAPIProvider, $authProvider){
+function config($routeProvider, $locationProvider, $authProvider){
     $locationProvider.hashPrefix('');
     $routeProvider
     .when('/', {
@@ -26,9 +26,9 @@ function config($routeProvider, $locationProvider, ngGPlacesAPIProvider, $authPr
     .otherwise({
         redirectTo: '/'
     });
-    ngGPlacesAPIProvider.setDefaults({        
+    /*ngGPlacesAPIProvider.setDefaults({        
         nearbySearchKeys: ['name','geometry','vicinity', 'icon', 'place_id']
-    });
+    });*/
 
     var commonConfig = {
         popupOptions: {

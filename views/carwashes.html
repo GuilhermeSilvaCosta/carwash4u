@@ -1,27 +1,5 @@
-<div data-ng-map class="map" data-disable-default-u-i="true" 
-    center="{{CarWashes.minhaLocalizacao}}" >
-    <marker id="minha-posicao" position="{{CarWashes.minhaLocalizacao}}">      
-    </marker>
-    <marker ng-repeat="p in CarWashes.washes"
-      id="marker-{{$index}}"
-      position="{{p.pos}}"
-      icon="{{p.icon}}" 
-	  on-click="CarWashes.showData(p)"
-      animation="DROP" >
-    </marker>	 
-	<info-window id="foo-iw">
-           <div ng-non-bindable="">
-                <b>{{CarWashes.place.nome}}</b>
-                <br>
-                <address>{{CarWashes.place.endereco}}</address>
-                <br>
-                <div class="row center">                    
-                    <a class='btn blue' data-target='demoModal' data-modal>Agendamento</a>
-                </div>
-           </div>
-     </info-window>	   
-</div>
-
+<leaflet ng-if="CarWashes.center" defaults="defaults" lf-center="CarWashes.center" height="100%" width="100%" markers="CarWashes.markers">
+</leaflet>
 
 <div id="demoModal" class="modal bottom-sheet">
     <div class="modal-content">
